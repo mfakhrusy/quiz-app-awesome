@@ -4,17 +4,27 @@ import WelcomeScreen from './screens/WelcomeScreen';
 import QuizScreen from './screens/QuizScreen';
 import FinishPage from './screens/FinishPage';
 
+interface Props {
+  isLoggedIn?: boolean;
+  children: React.ReactNode;
+  path: string;
+};
+
+const ProtectedRoute: React.FC<Props> = ({isLoggedIn, children, path}) => {
+  return <Route path={path}>{children}</Route>
+};
+
 const Router = () => (
   <Switch>
     <Route exact path="/welcome">
       <WelcomeScreen />
     </Route>
-    <Route path="/quiz">
+    <ProtectedRoute path="/quiz">
       <QuizScreen />
-    </Route>
-    <Route path="/finish">
+    </ProtectedRoute>
+    <ProtectedRoute path="/finish">
       <FinishPage />
-    </Route>
+    </ProtectedRoute>
     <Route path="*">
       <div>404 not found</div>
     </Route>
