@@ -6,7 +6,7 @@ import FinishPage from './screens/FinishPage';
 
 const Router = () => (
   <Switch>
-    <Route exact path="/">
+    <Route exact path="/welcome">
       <WelcomeScreen />
     </Route>
     <Route path="/quiz">

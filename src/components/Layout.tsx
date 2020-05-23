@@ -13,16 +13,26 @@ const Container = styled.div`
   color: ${white};
 `;
 
+export enum VariantType {
+  Default,
+  Hidden,
+};
+
 interface Props {
   children: React.ReactNode;
-}
+  variant?: VariantType;
+};
 
-const Layout: React.FunctionComponent<Props> = ({children}) => (
+const Layout: React.FunctionComponent<Props> = ({children, variant}) => (
   <Container>
-    <Header />
+    {variant === VariantType.Default ? <Header /> : null}
     {children}
-    <Footer />
+    {variant === VariantType.Default ? <Footer /> : null}
   </Container>
 );
+
+Layout.defaultProps = {
+  variant: VariantType.Default,
+};
 
 export default Layout;

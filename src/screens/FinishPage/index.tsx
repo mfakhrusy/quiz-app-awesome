@@ -1,10 +1,13 @@
 import React from 'react';
+import Layout from '../../components/Layout';
 
 const FinishPage = () => {
   return (
-    <div>
-      finish!
-    </div>
+    <Layout>
+      <div>
+        finish!
+      </div>
+    </Layout>
   )
 }
 

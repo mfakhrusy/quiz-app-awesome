@@ -1,10 +1,13 @@
 import React from 'react';
+import Layout from '../../components/Layout';
 
 const QuizScreen = () => {
   return (
-    <div>
-      quiz!
-    </div>
+    <Layout>
+      <div>
+        quiz!
+      </div>
+    </Layout>
   )
 }
 
