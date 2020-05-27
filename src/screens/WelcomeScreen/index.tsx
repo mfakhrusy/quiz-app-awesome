@@ -1,18 +1,33 @@
 import React from 'react';
 import Layout, { VariantType } from '../../components/Layout';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/reducers';
+import { useHistory } from 'react-router-dom';
+import { loginAction } from '../../store/actions/auth';
 
 const WelcomeScreen = () => {
   const isLoggedIn = useSelector((state: RootState) => state.isLoggedIn);
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-  console.log("apakah log in: ", isLoggedIn);
+  const login = React.useCallback(() => dispatch(loginAction()), [dispatch])
+
+  React.useEffect(() => {
+    if (isLoggedIn) {
+      history.push("/quiz");
+    }
+  }, [isLoggedIn, history]);
+  
   return (
     <Layout variant={VariantType.Hidden}>
       <div>
         <div>
           <div>welcome</div>
-          <div></div>
+          <div>
+            <button onClick={() => login()}>
+              Login
+            </button>
+          </div>
         </div>
       </div>
     </Layout>
