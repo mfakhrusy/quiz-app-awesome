@@ -4,6 +4,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/reducers';
 import { useHistory } from 'react-router-dom';
 import { loginAction } from '../../store/actions/auth';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const WelcomeContainer = styled.div`
+  margin-bottom: 10px;
+`;
 
 const WelcomeScreen = () => {
   const isLoggedIn = useSelector((state: RootState) => state.isLoggedIn);
@@ -20,16 +33,14 @@ const WelcomeScreen = () => {
   
   return (
     <Layout variant={VariantType.Hidden}>
-      <div>
+      <Container>
+        <WelcomeContainer>Selamat Datang di Aplikasi Kuis</WelcomeContainer>
         <div>
-          <div>welcome</div>
-          <div>
-            <button onClick={() => login()}>
-              Login
-            </button>
-          </div>
+          <button onClick={() => login()}>
+            Login
+          </button>
         </div>
-      </div>
+      </Container>
     </Layout>
   )
 }
