@@ -5,12 +5,13 @@ import Footer from './Footer';
 import { white, mainColor } from '../utils/colors';
 
 const Container = styled.div`
-  height: 100vh;
+  height: calc(100vh - 10px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: ${mainColor};
   color: ${white};
+  padding: 5px;
 `;
 
 export enum VariantType {
